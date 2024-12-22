@@ -47,6 +47,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       decoration: InputDecoration(
         hintStyle: AppTheme.hintStyle,
         hintText: widget.hintText,
+        suffixIcon: _copyButton(context),
         focusedBorder: OutlineInputBorder(
           borderSide: 
           BorderSide(
@@ -61,5 +62,15 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         counterStyle: AppTheme.counterStyle,
       ),
     );
+  }
+
+  IconButton _copyButton(BuildContext context){
+    return IconButton(
+      onPressed: (){}, 
+      splashRadius: 20,
+      splashColor: AppTheme.accent,
+      icon: Icon(Icons.content_copy_rounded),
+      color: AppTheme.accent,
+      );
   }
 }

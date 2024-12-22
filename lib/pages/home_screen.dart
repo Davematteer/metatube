@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     _actionButton(() => null, Icons.file_upload),
                     const SizedBox(width: 5,),
                     _actionButton(() => null, Icons.folder),
-                    _actionButton(() => null, Icons.home),
                   ],
                 )
             ],),
