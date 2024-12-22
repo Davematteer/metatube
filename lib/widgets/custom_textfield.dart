@@ -3,6 +3,7 @@
 import "dart:ui";
 
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 import "../utils/app_styles.dart";
 
@@ -33,6 +34,11 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     _focusNode.dispose();
     super.dispose();
   }
+
+  void copyToClipboard(context, String text){
+    Clipboard.setData(ClipboardData(text: text));
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -66,9 +72,11 @@ class _CustomTextfieldState extends State<CustomTextfield> {
 
   IconButton _copyButton(BuildContext context){
     return IconButton(
-      onPressed: (){}, 
+      onPressed: widget.controller.text.isNotEmpty ? 
+      () => copyToClipboard(context,widget.controller.text):null, 
       splashRadius: 20,
       splashColor: AppTheme.accent,
+      disabledColor: AppTheme.medium,
       icon: Icon(Icons.content_copy_rounded),
       color: AppTheme.accent,
       );
