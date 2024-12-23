@@ -4,6 +4,7 @@ import "dart:ui";
 
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
+import "package:metatube/utils/snackbar_utils.dart";
 
 import "../utils/app_styles.dart";
 
@@ -37,6 +38,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
 
   void copyToClipboard(context, String text){
     Clipboard.setData(ClipboardData(text: text));
+    SnackBarUtils.showSnackbar(context, Icons.content_copy, "Copied Text");
   }
 
   @override
