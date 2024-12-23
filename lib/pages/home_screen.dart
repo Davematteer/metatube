@@ -112,7 +112,9 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20,),
             Row(
               children: [
-                _mainButton(() => null, "Save Button"),
+                _mainButton(fileService.fieldsNotEmpty ? 
+                () => fileService.saveContent(context) : null, 
+                "Save File"),
               ],
             )
         ],),
