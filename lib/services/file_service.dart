@@ -5,4 +5,5 @@ class FileService {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController tagsController = TextEditingController();
 
+  bool fieldsNotEmpty = false;
 }

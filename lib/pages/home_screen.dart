@@ -18,6 +18,51 @@ class _HomeScreenState extends State<HomeScreen> {
   FileService fileService = FileService();
 
   @override
+  void initState() {
+    super.initState();
+    addListeners();
+  }
+
+  @override
+  void dispose() {
+    removeListeners();
+    super.dispose();
+  }
+
+  void addListeners(){
+    List<TextEditingController> controllers = [
+      fileService.titleController,
+      fileService.descriptionController,
+      fileService.tagsController,
+    ];
+
+    for(TextEditingController controller in controllers){
+        controller.addListener(_onFieldChanged);
+    }
+  }
+
+  void removeListeners(){
+     List<TextEditingController> controllers = [
+      fileService.titleController,
+      fileService.descriptionController,
+      fileService.tagsController,
+    ];
+
+    for(TextEditingController controller in controllers){
+        controller.removeListener(_onFieldChanged);
+    }
+
+  }
+
+  void _onFieldChanged(){
+    setState(() {
+      fileService.fieldsNotEmpty = fileService.titleController.text.isNotEmpty && 
+                                   fileService.descriptionController.text.isNotEmpty &&
+                                   fileService.tagsController.text.isNotEmpty;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.dark,
