@@ -1,16 +1,9 @@
-# metatube
+# Metatube: Flutter learning project 1
 
-A new Flutter project.
+A simple desktop about file management using flutter from https://www.youtube.com/@Spellthorn
 
-## Getting Started
+## Screenshots of app
+![image](https://github.com/user-attachments/assets/9b6d586d-4c49-4917-903b-07450d536b41)
+![image](https://github.com/user-attachments/assets/d10c92bb-5c94-4212-99dd-0c96f7dcd2cf)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
