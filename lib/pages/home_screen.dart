@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+
 import "package:flutter/material.dart";
+import "package:metatube/services/file_service.dart";
 import "package:metatube/utils/app_styles.dart";
 import "package:metatube/widgets/custom_textfield.dart";
 
@@ -13,9 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController tagsController = TextEditingController();
+  FileService fileService = FileService();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               maxLength: 100, 
               maxLines: 3,
               hintText: "Enter Video Title", 
-              controller: titleController
+              controller: fileService.titleController
             ),
             const SizedBox(height: 40,),
 
@@ -52,18 +52,24 @@ class _HomeScreenState extends State<HomeScreen> {
               maxLength: 5000, 
               maxLines: 6,
               hintText: "Enter Video Description", 
-              controller: descriptionController
+              controller: fileService.descriptionController
             ),
             
             const SizedBox(height: 40,),
-            
+
             CustomTextfield
             (
               maxLength: 500, 
               maxLines: 4,
               hintText: "Enter Video Title", 
-              controller: tagsController
+              controller: fileService.tagsController
             ),
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                _mainButton(() => null, "Save Button"),
+              ],
+            )
         ],),
       )
     );
